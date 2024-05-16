@@ -1,55 +1,79 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Lớp kiểm thử cho CreditEvaluation.
  */
 public class CreditEvaluationTest {
 
+    @Test
+    @DisplayName("1 + 1 = 2")
+    void addsTwoNumbers() {
+        Assertions.assertEquals(2, 2, "1 + 1 should equal 2");
+    }
+
     /**
      * Kiểm thử các trường hợp đầu vào không hợp lệ.
      */
-    @Test
-    public void testInvalidInput() {
-        assertEquals("Đầu vào không hợp lệ", CreditEvaluation.evaluateCredit(-100, 750));
-        assertEquals("Đầu vào không hợp lệ", CreditEvaluation.evaluateCredit(1200, 290));
+    @ParameterizedTest
+    @CsvSource({
+            "-100, 750, Đầu vào không hợp lệ",
+            "1200, 290, Đầu vào không hợp lệ"
+    })
+    public void testInvalidInput(double TNHT, int DTD, String expected) {
+        Assertions.assertEquals(expected, CreditEvaluation.evaluateCredit(TNHT, DTD));
     }
 
     /**
      * Kiểm thử các trường hợp không đủ điều kiện vay vốn.
      */
-    @Test
-    public void testNotEligibleForLoan() {
-        assertEquals("Không đủ điều kiện vay vốn", CreditEvaluation.evaluateCredit(1200, 480));
-        assertEquals("Không đủ điều kiện vay vốn", CreditEvaluation.evaluateCredit(900, 600));
+    @ParameterizedTest
+    @CsvSource({
+            "1200, 480, Không đủ điều kiện vay vốn",
+            "900, 600, Không đủ điều kiện vay vốn"
+    })
+    public void testNotEligibleForLoan(double TNHT, int DTD, String expected) {
+        Assertions.assertEquals(expected, CreditEvaluation.evaluateCredit(TNHT, DTD));
     }
 
     /**
      * Kiểm thử các trường hợp đủ điều kiện vay vốn mức cao.
      */
-    @Test
-    public void testHighEligibility() {
-        assertEquals("Đủ điều kiện vay vốn mức cao", CreditEvaluation.evaluateCredit(22000, 720));
-        assertEquals("Đủ điều kiện vay vốn mức cao", CreditEvaluation.evaluateCredit(30000, 800));
+    @ParameterizedTest
+    @CsvSource({
+            "22000, 720, Đủ điều kiện vay vốn mức cao",
+            "30000, 800, Đủ điều kiện vay vốn mức cao"
+    })
+    public void testHighEligibility(double TNHT, int DTD, String expected) {
+        Assertions.assertEquals(expected, CreditEvaluation.evaluateCredit(TNHT, DTD));
     }
 
     /**
      * Kiểm thử các trường hợp đủ điều kiện vay vốn mức trung bình.
      */
-    @Test
-    public void testMediumEligibility() {
-        assertEquals("Đủ điều kiện vay vốn mức trung bình", CreditEvaluation.evaluateCredit(8000, 650));
-        assertEquals("Đủ điều kiện vay vốn mức trung bình", CreditEvaluation.evaluateCredit(15000, 650));
+    @ParameterizedTest
+    @CsvSource({
+            "8000, 650, Đủ điều kiện vay vốn mức trung bình",
+            "15000, 650, Đủ điều kiện vay vốn mức trung bình"
+    })
+    public void testMediumEligibility(double TNHT, int DTD, String expected) {
+        Assertions.assertEquals(expected, CreditEvaluation.evaluateCredit(TNHT, DTD));
     }
 
     /**
      * Kiểm thử các trường hợp đủ điều kiện vay vốn mức thấp.
      */
-    @Test
-    public void testLowEligibility() {
-        assertEquals("Đủ điều kiện vay vốn mức thấp", CreditEvaluation.evaluateCredit(4500, 550));
-        assertEquals("Đủ điều kiện vay vốn mức thấp", CreditEvaluation.evaluateCredit(3000, 700));
+    @ParameterizedTest
+    @CsvSource({
+            "4500, 550, Đủ điều kiện vay vốn mức thấp",
+            "3000, 700, Đủ điều kiện vay vốn mức thấp"
+    })
+    public void testLowEligibility(double TNHT, int DTD, String expected) {
+        Assertions.assertEquals(expected, CreditEvaluation.evaluateCredit(TNHT, DTD));
     }
 }
