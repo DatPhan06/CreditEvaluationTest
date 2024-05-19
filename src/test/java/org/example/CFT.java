@@ -38,14 +38,14 @@ public class CFT {
             // Ca kiểm thử 10: Đủ điều kiện vay vốn mức thấp - TNHT >= 5000 nhưng DTD < 600
             "7000, 590, Đủ điều kiện vay vốn mức thấp", // tc10: 1c1; 1c2; 1c3; 1c4; 3c1; 3c2; 5; 8; 9; 11
 
-            // Ca kiểm thử 11: Đủ điều kiện vay vốn mức trung bình - TNHT = 20000 và DTD = 600
-            "20000, 600, Đủ điều kiện vay vốn mức trung bình", // tc11: 1c1; 1c2; 1c3; 1c4; 3c1; 3c2; 5; 6; 8; 9; 10
+            // Ca kiểm thử 11: Đủ điều kiện vay vốn mức trung bình - TNHT = 25000 và DTD = 620
+            "25000, 620, Đủ điều kiện vay vốn mức trung bình", // tc11: 1c1; 1c2; 1c3; 1c4; 3c1; 3c2; 5; 6; 8; 9; 10
 
-            // Ca kiểm thử 12: Đủ điều kiện vay vốn mức thấp - TNHT = 6000 và DTD = 650
-            "6000, 650, Đủ điều kiện vay vốn mức trung bình", // tc12: 1c1; 1c2; 1c3; 1c4; 3c1; 3c2; 5; 6; 8; 11
+            // Ca kiểm thử 12: Không hợp lệ - Không thể thỏa mãn 5 và không thỏa mãn 8
+            // tc12: 1c1; 1c2; 1c3; 1c4; 3c1; 3c2; 5; 6; 8; 11
 
-            // Ca kiểm thử 13: Đủ điều kiện vay vốn mức thấp - TNHT = 15000 và DTD = 500
-            "15000, 500, Đủ điều kiện vay vốn mức thấp" // tc13: 1c1; 1c2; 1c3; 1c4; 3c1; 3c2; 5; 6; 8; 9; 11
+            // Ca kiểm thử 13: Không hợp lệ - Không thể thỏa mãn 5 và không thỏa mãn 8
+            // tc13: 1c1; 1c2; 1c3; 1c4; 3c1; 3c2; 5; 6; 8; 9; 11
     })
     public void testEvaluateCredit(double TNHT, int DTD, String expected) {
         Assertions.assertEquals(expected, CreditEvaluation.evaluateCredit(TNHT, DTD));

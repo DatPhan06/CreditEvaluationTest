@@ -26,11 +26,11 @@ public class CreditEvaluation {
 
 
         // Đánh giá mức độ tín dụng
-        if (TNHT < 1000 || DTD < 500) {
+        if (TNHT < 1000 && DTD < 500) {
             return "Không đủ điều kiện vay vốn";
-        } else if (TNHT >= 20000 && DTD >= 700) {
+        } else if (TNHT >= 20000 && DTD >= 750) {
             return "Đủ điều kiện vay vốn mức cao";
-        } else if (TNHT >= 5000 && DTD >= 600) {
+        } else if (TNHT >= 5000 && DTD > 600) {
             return "Đủ điều kiện vay vốn mức trung bình";
         } else {
             return "Đủ điều kiện vay vốn mức thấp";
