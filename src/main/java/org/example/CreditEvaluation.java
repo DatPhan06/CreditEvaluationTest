@@ -13,37 +13,17 @@ public class CreditEvaluation {
     private static final int MAX_DTD = 850;
 
     /**
-     * Hàm kiểm tra tính hợp lệ của thu nhập hàng tháng (TNHT).
-     *
-     * @param TNHT Thu nhập hàng tháng của cá nhân.
-     * @return true nếu TNHT hợp lệ, false nếu không hợp lệ.
-     */
-    private static boolean isValidIncome(double TNHT) {
-        return TNHT >= MIN_TNHT && TNHT <= MAX_TNHT;
-    }
-
-    /**
-     * Hàm kiểm tra tính hợp lệ của điểm tín dụng (DTD).
-     *
-     * @param DTD Điểm tín dụng của cá nhân.
-     * @return true nếu DTD hợp lệ, false nếu không hợp lệ.
-     */
-    private static boolean isValidCreditScore(int DTD) {
-        return DTD >= MIN_DTD && DTD <= MAX_DTD;
-    }
-
-    /**
      * Hàm đánh giá tín dụng cá nhân dựa trên thu nhập hàng tháng (TNHT) và điểm tín dụng (DTD).
      *
      * @param TNHT Thu nhập hàng tháng của cá nhân.
-     * @param DTD Điểm tín dụng của cá nhân.
+     * @param DTD  Điểm tín dụng của cá nhân.
      * @return Kết quả đánh giá tín dụng dưới dạng chuỗi.
      */
     public static String evaluateCredit(double TNHT, int DTD) {
         // Kiểm tra tính hợp lệ của đầu vào
-        if (!isValidIncome(TNHT) || !isValidCreditScore(DTD)) {
+        if (TNHT < MIN_TNHT || TNHT > MAX_TNHT || DTD < MIN_DTD || DTD > MAX_DTD)
             return "Đầu vào không hợp lệ";
-        }
+
 
         // Đánh giá mức độ tín dụng
         if (TNHT < 1000 || DTD < 500) {
@@ -57,28 +37,28 @@ public class CreditEvaluation {
         }
     }
 
-    /**
-     * Phương thức chính để chạy chương trình và kiểm tra các trường hợp đầu vào.
-     */
-    public static void main(String[] args) {
-        // Ví dụ đầu vào
-        int TNHT1 = 1200;
-        int DTD1 = 480;
-        int TNHT2 = 22000;
-        int DTD2 = 720;
-        int TNHT3 = 8000;
-        int DTD3 = 650;
-        int TNHT4 = 4500;
-        int DTD4 = 550;
-        int TNHT5 = -100;
-        int DTD5 = 750;
-
-        // Đánh giá và in kết quả
-        System.out.println(evaluateCredit(TNHT1, DTD1)); // Không đủ điều kiện vay vốn
-        System.out.println(evaluateCredit(TNHT2, DTD2)); // Đủ điều kiện vay vốn mức cao
-        System.out.println(evaluateCredit(TNHT3, DTD3)); // Đủ điều kiện vay vốn mức trung bình
-        System.out.println(evaluateCredit(TNHT4, DTD4)); // Đủ điều kiện vay vốn mức thấp
-        System.out.println(evaluateCredit(TNHT5, DTD5)); // Đầu vào không hợp lệ
-
-    }
+//    /**
+//     * Phương thức chính để chạy chương trình và kiểm tra các trường hợp đầu vào.
+//     */
+//    public static void main(String[] args) {
+//        // Ví dụ đầu vào
+//        double TNHT1 = 50000;
+//        int DTD1 = 575;
+//        int TNHT2 = 22000;
+//        int DTD2 = 720;
+//        int TNHT3 = 8000;
+//        int DTD3 = 650;
+//        int TNHT4 = 4500;
+//        int DTD4 = 550;
+//        int TNHT5 = -100;
+//        int DTD5 = 750;
+//
+//        // Đánh giá và in kết quả
+//        System.out.println(evaluateCredit(TNHT1, DTD1)); // Không đủ điều kiện vay vốn
+//        System.out.println(evaluateCredit(TNHT2, DTD2)); // Đủ điều kiện vay vốn mức cao
+//        System.out.println(evaluateCredit(TNHT3, DTD3)); // Đủ điều kiện vay vốn mức trung bình
+//        System.out.println(evaluateCredit(TNHT4, DTD4)); // Đủ điều kiện vay vốn mức thấp
+//        System.out.println(evaluateCredit(TNHT5, DTD5)); // Đầu vào không hợp lệ
+//
+//    }
 }

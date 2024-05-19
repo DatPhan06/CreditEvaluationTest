@@ -1,0 +1,9 @@
+TNHT,DTD,expected
+-0.01,575,Đầu vào không hợp lệ
+0,575,Không đủ điều kiện vay vốn
+100000,575,Đủ điều kiện vay vốn mức thấp
+100000.01,575,Đầu vào không hợp lệ
+50000,299,Đầu vào không hợp lệ
+50000,300,Không đủ điều kiện vay vốn
+50000,850,Đủ điều kiện vay vốn mức cao
+50000,851,Đầu vào không hợp lệ

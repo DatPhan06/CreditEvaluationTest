@@ -1,0 +1,16 @@
+TNHT,DTD,expected
+0,575,Không đủ điều kiện vay vốn
+999,575,Không đủ điều kiện vay vốn
+1000,575,Đủ điều kiện vay vốn mức thấp
+4999,575,Đủ điều kiện vay vốn mức thấp
+5000,575,Đủ điều kiện vay vốn mức thấp
+19999,575,Đủ điều kiện vay vốn mức thấp
+20000,575,Đủ điều kiện vay vốn mức thấp
+100000,575,Đủ điều kiện vay vốn mức thấp
+50000,499,Không đủ điều kiện vay vốn
+50000,500,Đủ điều kiện vay vốn mức thấp
+50000,599,Đủ điều kiện vay vốn mức thấp
+50000,600,Đủ điều kiện vay vốn mức trung bình
+50000,699,Đủ điều kiện vay vốn mức trung bình
+50000,700,Đủ điều kiện vay vốn mức cao
+50000,850,Đủ điều kiện vay vốn mức cao
